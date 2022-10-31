@@ -7,7 +7,7 @@ Ex)
 *********
 */
 function ex1(message) {
-  let str = star(message.length);
+  let str = star(String(message).length);
 
   console.log(str);
   console.log("* " + message + " *");
