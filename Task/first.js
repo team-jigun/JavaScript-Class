@@ -9,22 +9,18 @@ Ex)
 
 // 2-1. message는 매개 변수를 받은 만큼 *로 감싼 문자가 출력되어야 한다.
 // 2-2. 매개 변수는 배열로 받지 않는다.
-function printer(message) {
-  const text = `* ${message} *`;
-  const arr = [];
-  
-  if(message == undefined) {
-    throw Error("message 변수에 값이 없습니다.");
-  }
-  
-  for(let i = 0; i < text.length; i++) {
-    arr.push("*");
-  }
-  let text2 = arr.join("");
+function printer() {
+  [...arguments].map(t => {
+    const arr = [];
+    const text1 = `* ${t} *`;
+    for (let i = 0; i < text1.length; i++) {
+      arr.push("*");
+    };
+    const text2 = arr.join("");
+    const msg = `${text2}\n${text1}\n${text2}`;
 
+    console.log(msg);
+  });
+};
 
-
-  return `${text2}\n${text}\n${text2}`;
-}
-
-console.log(printer('test'));
+printer("test", "text2");
