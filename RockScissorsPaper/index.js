@@ -1,5 +1,6 @@
 const $ = e => document.querySelector(e);
 
+const $body = $("body");
 const $target = $(".computerRSP");
 const $text = $(".body");
 const $userTargets = [...document.querySelectorAll(".user img")];
@@ -28,15 +29,12 @@ timerHandle();
 
 const startGame = () => {
     $userTargets.map(t => {
-    
-        t.addEventListener("", () => {
-
+        $body.addEventListener("dragstart", (e) => {
+            if(e.target.className !== t.className) return;
         });
-        t.addEventListener("dragover", (e) => {
-            e.preventDefault();
-        });
-        t.addEventListener("drop", (e) => {
-            if($text.innerText != "결과") return;
+        $body.addEventListener("dragover", (e) => {
+            if (e.target.id !== $target.id) return;
+            if ($text.innerText != "결과") return;
             resultGame(t.className, $target.id);
         });
     });
@@ -45,7 +43,7 @@ const startGame = () => {
 const resultGame = (user, bot) => {
     if ((user == "rock" && bot == "2") || (user == "scissors" && bot == "3") || (user == "paper" && bot == "1")) {
         $text.innerText = "승리";
-    } else if((user == "rock" && bot == "1") || (user == "scissors" && bot == "2") || (user == "paper" && bot == "3")){
+    } else if ((user == "rock" && bot == "1") || (user == "scissors" && bot == "2") || (user == "paper" && bot == "3")) {
         $text.innerText = "무승부";
     } else {
         $text.innerText = "패배";
