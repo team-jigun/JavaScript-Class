@@ -5,7 +5,7 @@ const $target = $(".computerRSP");
 const $text = $(".body");
 const $userTargets = [...document.querySelectorAll(".user img")];
 
-$target.id = "1";
+$target.id = "rock";
 let count1 = 1;
 let count2 = 1;
 let timer = null;
@@ -44,9 +44,9 @@ const startGame = () => {
 
 const resultGame = (user, bot) => {
     console.log(user, bot);
-    if ((user == "rock" && bot == "2") || (user == "scissors" && bot == "3") || (user == "paper" && bot == "1")) {
+    if ((user == "rock" && bot == "scissors") || (user == "scissors" && bot == "paper") || (user == "paper" && bot == "rock")) {
         $text.innerText = "승리";
-    } else if ((user == "rock" && bot == "1") || (user == "scissors" && bot == "2") || (user == "paper" && bot == "3")) {
+    } else if ((user == "rock" && bot == "rock") || (user == "scissors" && bot == "scissors") || (user == "paper" && bot == "paper")) {
         $text.innerText = "무승부";
     } else {
         $text.innerText = "패배";
