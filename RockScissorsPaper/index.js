@@ -9,6 +9,8 @@ $target.id = "1";
 let count1 = 1;
 let count2 = 1;
 let timer = null;
+let eventTarget = null;
+
 const changeImage = () => {
     if (count1 == 3) {
         count1 = 0;
@@ -30,17 +32,18 @@ timerHandle();
 const startGame = () => {
     $userTargets.map(t => {
         $body.addEventListener("dragstart", (e) => {
-            if(e.target.className !== t.className) return;
+            eventTarget = e.target;
         });
         $body.addEventListener("dragover", (e) => {
             if (e.target.id !== $target.id) return;
             if ($text.innerText != "결과") return;
-            resultGame(t.className, $target.id);
+            resultGame(eventTarget.className, $target.id);
         });
     });
 };
 
 const resultGame = (user, bot) => {
+    console.log(user, bot);
     if ((user == "rock" && bot == "2") || (user == "scissors" && bot == "3") || (user == "paper" && bot == "1")) {
         $text.innerText = "승리";
     } else if ((user == "rock" && bot == "1") || (user == "scissors" && bot == "2") || (user == "paper" && bot == "3")) {
