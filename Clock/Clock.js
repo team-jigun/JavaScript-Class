@@ -17,7 +17,7 @@ const watch = () => {
         hours -= 12;
     } else {
         text = "AM";
-        if(text == "AM" && hours === 0) {
+        if(text === "AM" && hours === 0) {
             hours += 12;
         };
     };
