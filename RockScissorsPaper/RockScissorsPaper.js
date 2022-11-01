@@ -33,7 +33,7 @@ const startGame = () => {
         $body.addEventListener("dragstart", (e) => {
             eventTarget = e.target;
         });
-        $body.addEventListener("dragover", (e) => {
+        $body.addEventListener("dragenter", (e) => {
             if (e.target.id !== $target.id) return;
             if ($text.innerText != "결과") return;
             resultGame(eventTarget.className, $target.id);
