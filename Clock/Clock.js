@@ -13,10 +13,13 @@ const watch = () => {
     let text = "";
 
     if(hours > 12) {
+        text = "PM";    
         hours -= 12;
-        text = "PM";
     } else {
         text = "AM";
+        if(text == "AM" && hours === 0) {
+            hours += 12;
+        };
     };
 
     $title.innerText = `${text} ${textPad(hours)}:${textPad(minutes)}:${textPad(seconds)}`;
