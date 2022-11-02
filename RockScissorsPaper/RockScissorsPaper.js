@@ -8,9 +8,9 @@ let timer = null;
 let userSelectDrag = null;
 
 const changeImage = () => {
-    const randomNum = parseInt(Math.random() * 3) + 1;
-    $target.id = randomNum === 1 ? "rock" :  randomNum === 2 ? "scissors" : randomNum === 3 ? "paper" : "";
-    $target.src = `./image/${randomNum}.png`;
+    const randomIndex = parseInt(Math.random() * 3) + 1;
+    $target.id = randomIndex === 1 ? "rock" :  randomIndex === 2 ? "scissors" : randomIndex === 3 ? "paper" : "";
+    $target.src = `./image/${randomIndex}.png`;
 };
 
 const timerHandle = () => {
