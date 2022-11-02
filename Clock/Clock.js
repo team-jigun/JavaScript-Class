@@ -28,10 +28,10 @@ const watch = () => {
     };
 
     $title.innerText = `${meridiemText} ${timePad(hours)}:${timePad(minutes)}:${timePad(seconds)}`;
-
-    setTimeout(() => {
-        watch();
-    }, 1000);
-}
+};
 
 watch();
+
+setInterval(() => {
+    watch();
+}, 1000);
