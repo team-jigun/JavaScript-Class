@@ -33,4 +33,3 @@ function printer3(...args) {
     printer2(i);
   }
 }
-printer3("str", "str2");
