@@ -22,8 +22,8 @@ const watch = () => {
         hours -= 12;
     } else {
         meridiemText = "AM";
-        if(meridiemText === "AM" && hours === 0) {
-            hours += 12;
+        if(hours === 0) {
+            hours = 12;
         };
     };
 
