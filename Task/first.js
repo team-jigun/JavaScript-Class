@@ -26,10 +26,8 @@ function star(len) {
 
 // 2-1. message는 매개 변수를 받은 만큼 *로 감싼 문자가 출력되어야 한다.
 // 2-2. 매개 변수는 배열로 받지 않는다.
-function ex2() {
-  for (let i of arguments) {
+function ex2(...messages) {
+  for (let i of messages) {
     ex1(i);
   }
 }
-
-printer("test");
