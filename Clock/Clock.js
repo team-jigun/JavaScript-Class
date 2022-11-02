@@ -1,22 +1,8 @@
 const $title = document.querySelector(".title");
 
-const timePad = time => {
-    if(typeof time !== "number") {
-        throw Error("time의 타입이 number가 아닙니다.");
-    };
-
-    return String(time).padStart(2, "0");
-};
-
-const watch = () => {
-    const time = new Date();
-
-    let hours = time.getHours();
-    const minutes = time.getMinutes();
-    const seconds = time.getSeconds();
-
+const utilTime = (hours, minutes, seconds) => {
     let meridiemText = "";
-
+    
     if(hours > 12) {
         meridiemText = "PM";    
         hours -= 12;
@@ -27,7 +13,23 @@ const watch = () => {
         };
     };
 
-    $title.innerText = `${meridiemText} ${timePad(hours)}:${timePad(minutes)}:${timePad(seconds)}`;
+    hours = String(hours).padStart(2, "0");
+    minutes = String(minutes).padStart(2, "0");
+    seconds = String(seconds).padStart(2, "0");
+
+    return `${meridiemText} ${hours}:${minutes}:${seconds}`;
+};
+
+const watch = () => {
+    const time = new Date();
+
+    const hours = time.getHours();
+    const minutes = time.getMinutes();
+    const seconds = time.getSeconds();
+
+    const resultTime = utilTime(hours, minutes, seconds);
+
+    $title.innerText = resultTime;
 };
 
 watch();
