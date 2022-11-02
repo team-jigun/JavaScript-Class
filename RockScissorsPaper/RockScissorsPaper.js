@@ -1,18 +1,16 @@
-const $ = e => document.querySelector(e);
-
-const $body = $("body");
-const $target = $(".computerRSP");
-const $text = $(".body");
-const $userTargets = [...document.querySelectorAll(".user img")];
+const $body = document.querySelector("body");
+const $target = document.querySelector(".computerRSP");
+const $text = document.querySelector(".body");
+const $userTargets = document.querySelectorAll(".user img");
 
 $target.id = "rock";
 let timer = null;
-let eventTarget = null;
+let userSelectDrag = null;
 
 const changeImage = () => {
-    const num = parseInt(Math.random() * 3) + 1;
-    $target.id = num === 1 ? "rock" :  num === 2 ? "scissors" : num === 3 ? "paper" : "";
-    $target.src = `./image/${num}.png`;
+    const randomNum = parseInt(Math.random() * 3) + 1;
+    $target.id = randomNum === 1 ? "rock" :  randomNum === 2 ? "scissors" : randomNum === 3 ? "paper" : "";
+    $target.src = `./image/${randomNum}.png`;
 };
 
 const timerHandle = () => {
@@ -24,16 +22,16 @@ const timerHandle = () => {
 timerHandle();
 
 const startGame = () => {
-    $userTargets.map(t => {
+    for(let i = 0; i < $userTargets.length; i++) {
         $body.addEventListener("dragstart", (e) => {
-            eventTarget = e.target;
+            userSelectDrag = e.target;
         });
         $body.addEventListener("dragenter", (e) => {
             if (e.target.id !== $target.id) return;
             if ($text.innerText != "결과") return;
-            resultGame(eventTarget.className, $target.id);
+            resultGame(userSelectDrag.className, $target.id);
         });
-    });
+    };
 };
 
 const resultGame = (user, bot) => {

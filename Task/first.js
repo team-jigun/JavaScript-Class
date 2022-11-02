@@ -10,17 +10,17 @@ Ex)
 // 2-1. message는 매개 변수를 받은 만큼 *로 감싼 문자가 출력되어야 한다.
 // 2-2. 매개 변수는 배열로 받지 않는다.
 function printer(...rest) {
-  [...rest].map(t => {
+  [...rest].forEach(t => {
     const arr = [];
-    const text1 = `* ${t} *`;
-    for (let i = 0; i < text1.length; i++) {
+    const midBox = `* ${t} *`;
+    for (let i = 0; i < midBox.length; i++) {
       arr.push("*");
     };
-    const text2 = arr.join("");
-    const msg = `${text2}\n${text1}\n${text2}`;
+    const border = arr.join("");
+    const resultBox = `${border}\n${midBox}\n${border}`;
 
-    console.log(msg);
+    console.log(resultBox);
   });
 };
 
-printer("test", "text2");
+printer("test", "text");
