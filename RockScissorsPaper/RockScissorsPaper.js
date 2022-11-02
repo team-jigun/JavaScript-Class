@@ -1,8 +1,6 @@
-let arr = ['./image/1.png', './image/2.png', './image/3.png'];
+const arr = ['./image/1.png', './image/2.png', './image/3.png'];
 const bot = document.querySelector(".computerRSP");
 let i = 0;
-
-let q = setInterval(rsp, 300);
 
 function rsp(){
     bot.setAttribute("src",  `${arr[i]}`)
@@ -13,14 +11,15 @@ function rsp(){
     }
 }
 
-let user = document.querySelector(".user")
-let rock = document.querySelector(".rock");
-let scissors = document.querySelector(".scissors");
-let paper = document.querySelector(".paper");
+let q = setInterval(rsp, 300);
+
+const user = document.querySelector(".user")
+const rock = document.querySelector(".rock");
+const scissors = document.querySelector(".scissors");
+const paper = document.querySelector(".paper");
 let result = document.querySelector(".body")
 
 user.addEventListener("dragstart",(e)=>{
-    console.log(e)
 
     bot.addEventListener("dragover",()=>{
         if (e.target == rock) {

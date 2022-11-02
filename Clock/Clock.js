@@ -1,11 +1,10 @@
 function time(){
-    let day = new Date();
-    console.log(day);
-    let ho = String(day.getHours()).padStart(2, "0");
-    let mi = String(day.getMinutes()).padStart(2, "0");
-    let se = String(day.getSeconds()).padStart(2, "0");
+    const day = new Date();
+    const ho = String(day.getHours()).padStart(2, "0");
+    const mi = String(day.getMinutes()).padStart(2, "0");
+    const se = String(day.getSeconds()).padStart(2, "0");
 
-    let title = document.querySelector(".title")
+    const title = document.querySelector(".title")
 
     title.innerHTML = `${ho}:${mi}:${se}`;
 }
