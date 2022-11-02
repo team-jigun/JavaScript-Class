@@ -28,8 +28,8 @@ function printer2(message) {
   str = "";
 }
 // 2-2, 2-1
-function printer3(a, b) {
-  for (let i of arguments) {
+function printer3(...args) {
+  for (let arg of args) {
     printer2(i);
   }
 }

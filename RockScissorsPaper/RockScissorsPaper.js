@@ -27,20 +27,24 @@ paper.addEventListener("dragstart", (e) => {
 
 const body = document.querySelector(".body");
 img.addEventListener("dragenter", (e) => {
-  if (imgFlag == src) {
-    body.textContent = "무승부";
-  } else if (imgFlag == 1 && src == 2) {
-    body.textContent = "패배";
-  } else if (imgFlag == 1 && src == 3) {
-    body.textContent = "승리";
-  } else if (imgFlag == 2 && src == 1) {
-    body.textContent = "패배";
-  } else if (imgFlag == 2 && src == 3) {
-    body.textContent = "승리";
-  } else if (imgFlag == 3 && src == 2) {
-    body.textContent = "승리";
-  } else if (imgFlag == 3 && src == 1) {
-    body.textContent = "패배";
+  if (
+    (imgFlag == 1 && src == 2) ||
+    (imgFlag == 2 && src == 3) ||
+    (imgFlag == 3 && src == 1)
+  ) {
+    body.innerHTML = "패배";
+  } else if (
+    (imgFlag == 1 && src == 1) ||
+    (imgFlag == 2 && src == 2) ||
+    (imgFlag == 3 && src == 3)
+  ) {
+    body.innerHTML = "무승부";
+  } else if (
+    (imgFlag == 1 && src == 3) ||
+    (imgFlag == 2 && src == 1) ||
+    (imgFlag == 3 && src == 2)
+  ) {
+    body.innerHTML = "승리";
   }
   clearInterval(flag);
 });
