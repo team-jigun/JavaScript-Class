@@ -12,9 +12,3 @@ function getTime() {
 }
 
 setInterval(getTime, 1000);
-
-function Time() {
-  getTime();
-}
-
-Time();
