@@ -3,43 +3,43 @@ let rock = document.querySelector(".rock");
 let scissors = document.querySelector(".scissors");
 let paper = document.querySelector(".paper");
 let result = document.querySelector(".body");
-let i = 0;
-let j = 0;
+let den = 0; // Drag Enter Num
+let dsn = 0; // Drag Start Num
 
 rock.addEventListener("dragstart", () => {
-  j = 1;
+  dsn = 1;
 });
 
 scissors.addEventListener("dragstart", () => {
-  j = 2;
+  dsn = 2;
 });
 
 paper.addEventListener("dragstart", () => {
-  j = 3;
+  dsn = 3;
 });
 
 dropzone.addEventListener("dragenter", () => {
   clearInterval(render);
-  console.log(j);
-  if ((i % 3) + 1 == j) {
+
+  if ((den % 3) + 1 == dsn) {
     result.innerHTML = "결과: 비겼습니다.";
-  } else if (((i % 3) + 1 == 2) & (j == 1)) {
+  } else if (((den % 3) + 1 == 2) & (dsn == 1)) {
     result.innerHTML = "결과: 승리!";
-  } else if (((i % 3) + 1 == 3) & (j == 2)) {
+  } else if (((den % 3) + 1 == 3) & (dsn == 2)) {
     result.innerHTML = "결과: 승리!";
-  } else if (((i % 3) + 1 == 1) & (j == 3)) {
+  } else if (((den % 3) + 1 == 1) & (dsn == 3)) {
     result.innerHTML = "결과: 승리!";
-  } else if (((i % 3) + 1 == 2) & (j == 3)) {
+  } else if (((den % 3) + 1 == 2) & (dsn == 3)) {
     result.innerHTML = "결과: 패배..";
-  } else if (((i % 3) + 1 == 3) & (j == 1)) {
+  } else if (((den % 3) + 1 == 3) & (dsn == 1)) {
     result.innerHTML = "결과: 패배..";
-  } else if (((i % 3) + 1 == 1) & (j == 2)) {
+  } else if (((den % 3) + 1 == 1) & (dsn == 2)) {
     result.innerHTML = "결과: 패배..";
   }
 });
 
 let render = setInterval(function () {
-  i++;
+  den++;
   let dropzone = document.querySelector(".dropzone");
-  dropzone.setAttribute("src", (i % 3) + 1 + ".png");
-}, 100);
+  dropzone.setAttribute("src", "./image/" + ((den % 3) + 1) + ".png");
+}, 1000);
