@@ -28,7 +28,7 @@ const startGame = () => {
         });
         $body.addEventListener("dragenter", (e) => {
             if (e.target.id !== $target.id) return;
-            if ($text.innerText != "결과") return;
+            if ($text.innerText !== "결과") return;
             resultGame(userSelectDrag.className, $target.id);
         });
     };
