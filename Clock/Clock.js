@@ -6,7 +6,6 @@ function getTime(){
     const hour = time.getHours();
     const minutes = time.getMinutes();
     const seconds = time.getSeconds();
-    //clock.innerHTML = hour +":" + minutes + ":"+seconds;
     clock.innerHTML = `${hour}:${minutes}:${seconds}`
 }
 
