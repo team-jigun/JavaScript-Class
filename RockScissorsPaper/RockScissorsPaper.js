@@ -8,7 +8,7 @@ let RSP = 0;
 let body = document.querySelector(".body");
 window.onload = () => {
   setInterval(() => {
-    if (imgcount >=3) {
+    if (imgcount >= 3) {
       imgcount = 0;
     }
     dropzone.setAttribute("src", `./image/${++imgcount}.png`);
@@ -26,36 +26,6 @@ window.onload = () => {
   });
 
   dropzone.addEventListener("dragenter", () => {
-    // if ((RSP = 1)) {
-    //   if (RSP == 1) {
-    //     console.log("비겼어용");
-    //   } else if (RSP == 2) {
-    //     console.log("졌어용");
-    //   } else if (RSP == 3) {
-    //     console.log("이겼어용");
-    //   }
-    // }
-    // if (RSP == 2) {
-    //   if (RSP == 1) {
-    //     console.log("졌어용");
-    //   } else if (RSP == 2) {
-    //     console.log("비겼어용");
-    //   } else if (RSP == 3) {
-    //     console.log("이겼어용");
-    //   }
-    // }
-    // if (RSP == 3) {
-    //   if (RSP == 1) {
-    //     console.log("이겼어용");
-    //   } else if (RSP == 2) {
-    //     console.log("졌어용");
-    //   } else if (RSP == 3) {
-    //     console.log("비겼어용");
-    //   }
-    // }
-
-
-    //imgcount : 1 = rock, 2=scissors, 3=paper
     if (imgcount == 1) {
       if (RSP == 1) {
         console.log("비김");
@@ -68,7 +38,6 @@ window.onload = () => {
       }
     }
 
-
     if (imgcount == 2) {
       if (RSP == 1) {
         console.log("이김");
@@ -80,7 +49,7 @@ window.onload = () => {
         console.log("짐");
       }
     }
-    //컴퓨터가 보 일때
+    
     if (imgcount == 3) {
       if (RSP == 1) {
         console.log("짐");
