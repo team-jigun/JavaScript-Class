@@ -27,37 +27,37 @@ window.onload = () => {
   dropzone.addEventListener("dragenter", () => {
     if (imgcount == 1) {
       if (RSP == 1) {
-        console.log("비김");
+        body.innerText = "비겼습니다.";
       }
       if (RSP == 2) {
-        console.log("짐");
+        body.innerText = "졌습니다.";
       }
       if (RSP == 3) {
-        console.log("이김");
+        body.innerText = "이겼습니다.";
       }
     }
 
     if (imgcount == 2) {
       if (RSP == 1) {
-        console.log("이김");
+        body.innerText = "이겼습니다.";
       }
       if (RSP == 2) {
-        console.log("비김");
+        body.innerText = "비겼습니다.";
       }
       if (RSP == 3) {
-        console.log("짐");
+        body.innerText = "졌습니다.";
       }
     }
-    
+
     if (imgcount == 3) {
       if (RSP == 1) {
-        console.log("짐");
+        body.innerText = "졌습니다.";
       }
       if (RSP == 2) {
-        console.log("이김");
+        body.innerText = "이겼습니다.";
       }
       if (RSP == 3) {
-        console.log("비김");
+        body.innerText = "비겼습니다.";
       }
     }
   });
