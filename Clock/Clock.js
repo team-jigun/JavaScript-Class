@@ -8,7 +8,6 @@ function changeTime(){
     clock.innerText = `${ho}:${min}:${sec}`
 }
 
-
 setInterval(changeTime, 1000);
 
 
