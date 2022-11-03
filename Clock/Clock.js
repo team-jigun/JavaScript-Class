@@ -1,15 +1,14 @@
 const clock = document.querySelector('.title');
 
-function getTime(){
+function changeTime(){
     const time = new Date();
-    const hour = time.getHours();
-    const minute = time.getMinutes();
-    const second = time.getSeconds();
-    clock.innerHTML = `${hour}:${minute}:${second}`
+    const ho = time.getHours();
+    const min = time.getMinutes();
+    const sec = time.getSeconds();
+    clock.innerText = `${ho}:${min}:${sec}`
 }
 
-function set(){
-    setInterval(getTime, 1000);
-}
 
-set();
+setInterval(changeTime, 1000);
+
+
