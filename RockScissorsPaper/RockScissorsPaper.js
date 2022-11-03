@@ -1,7 +1,6 @@
 let rock = document.querySelector(".rock");
 let scissors = document.querySelector(".scissors");
 let paper = document.querySelector(".paper");
-let user = document.querySelector(".user");
 let dropzone = document.querySelector(".dropzone");
 let imgcount = 1;
 let RSP = 0;
