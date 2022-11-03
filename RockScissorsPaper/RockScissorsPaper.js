@@ -76,11 +76,11 @@ let imageIndex = 0;
         clearInterval(stoptime);
         Result.innerHTML = "졌습니다."
       }
+      setTimeout(() => {
+        stoptime = setInterval(changeImage, 500);
+        Result.innerHTML = "결과"
+      },2000)
     }
-    setTimeout(() => {
-      stoptime = setInterval(changeImage, 500);
-      Result.innerHTML = "결과"
-    },2000)
   });
 
 
