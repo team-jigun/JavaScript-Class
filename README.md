@@ -1,2 +1,0 @@
-# JavaScript Class
-JavaScript Class
