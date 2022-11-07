@@ -12,19 +12,15 @@ const SIGN_TYPE = {
 
 // http://localhost:3000/plus?num=1111&num=2222&num=3333&num=4444
 app.get("/plus", (req, res) => {
-    const plusQuery = req.query.num;
-    const arr = [];
-    let addupNum = 0;
-
-    for(let index of plusQuery) {
-        arr.push(index);
+    const numQuery = req.query.num;
+    if(!numQuery) {
+        res.send("Error");
     };
 
-    let addedNum = parseInt(arr[0]);
-    
-    for(let i = 0;  i < arr.length; i++) {
-        addupNum = parseInt(arr[i] === arr[0] ? 0 : arr[i]);
-        
+    let addedNum = parseInt(numQuery[0]);
+
+    for (let i = 1; i < numQuery.length; i++) {
+        const addupNum = parseInt(i === numQuery ? 0 : numQuery[i]);
         addedNum += addupNum;
     };
     res.send(String(addedNum));
@@ -32,33 +28,35 @@ app.get("/plus", (req, res) => {
 
 // http://localhost:3000/all?num=6666&num=2222&num=3333&type=minus
 app.get("/all", (req, res) => {
-    const nums = req.query.num;
+    const numQuery = req.query.num;
     const type = req.query.type;
-    const arr = [];
-    let num = 0;
-
-    for(let index of nums) {
-        arr.push(index);
+    if((!numQuery || !type) || (type !== SIGN_TYPE.PLUS && type !== SIGN_TYPE.MINUS && type !== SIGN_TYPE.MULTIPLY && type !== SIGN_TYPE.DIVISION)) {
+        res.send(`Error ${type}이 없습니다.`);
     };
 
-    let target = parseInt(arr[0]);
+    let addedNum = parseInt(numQuery[0]);
 
+    for (let i = 1; i < numQuery.length; i++) {
+        const addupNum = parseInt(i === numQuery ? 0 : numQuery[i]);
 
-    for(let i = 0;  i < arr.length; i++) {
-        num = parseInt(arr[i] === arr[0] ? 0 : arr[i]);
-                
-        switch(type) {
-            case SIGN_TYPE.PLUS:  target += num; break;
-            case SIGN_TYPE.MINUS: target -= num; break;
-            case SIGN_TYPE.MULTIPLY: target *= num;  break;
-            case SIGN_TYPE.DIVISION: target /= num; break;
-    
-            default: throw Error("타입이 존재하지 않습니다.");
+        switch (type) {
+            case SIGN_TYPE.PLUS:
+                addedNum += addupNum;
+                break;
+            case SIGN_TYPE.MINUS: 
+                addedNum -= addupNum; 
+                break;
+            case SIGN_TYPE.MULTIPLY: 
+                addedNum *= addupNum; 
+                break;
+            case SIGN_TYPE.DIVISION: 
+                addedNum /= addupNum; 
+                break;
+            default: addedNum;
         };
     };
 
-
-    res.send(String(target));
+    res.send(String(addedNum));
 });
 
 app.listen(port, () => {
