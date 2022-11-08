@@ -4,7 +4,7 @@
 }
 
 body {
-  background-image: url('https://picsum.photos/1920/1080');
+  background-image: url('https://mblogthumb-phinf.pstatic.net/20160715_92/creaming123_1468567721472gmdeW_JPEG/%B6%D7%C0%CC.jpg?type=w2');
 }
 
 .main {
@@ -15,4 +15,5 @@ body {
 .title {
   font-size: 150px;
   color: white;
+  line-height: 500px;
 }
