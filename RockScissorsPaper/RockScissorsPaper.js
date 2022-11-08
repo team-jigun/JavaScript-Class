@@ -9,7 +9,7 @@ let userSelectDrag = null;
 
 const changeImage = () => {
     const randomIndex = parseInt(Math.random() * 3) + 1;
-    $target.id = randomIndex === 1 ? "rock" :  randomIndex === 2 ? "scissors" : randomIndex === 3 ? "paper" : "";
+    $target.id = randomIndex === 1 ? "rock" : randomIndex === 2 ? "scissors" : randomIndex === 3 ? "paper" : "";
     $target.src = `./image/${randomIndex}.png`;
 };
 
@@ -22,7 +22,7 @@ const timerHandle = () => {
 timerHandle();
 
 const startGame = () => {
-    for(let i = 0; i < $userTargets.length; i++) {
+    for (let i = 0; i < $userTargets.length; i++) {
         $body.addEventListener("dragstart", (e) => {
             userSelectDrag = e.target;
         });
