@@ -1,17 +1,28 @@
 let clock = document.querySelector(".title");
 
-function Time(){
+setInterval(() => {
   let time = new Date();
-  let hour = time.getHours();
-  const minutes = time.getMinutes();
-  const seconds = time.getSeconds();
-  clock.innerHTML = `${hour<10 ? "0"+hour :hour}:${minutes<10 ? "0"+minutes :minutes}:${seconds<10 ? "0"+seconds :seconds}`; 
-   
-}
+  let hour = setTime(time.getHours());
+  let minutes = setTime(time.getMinutes());
+  let seconds = setTime(time.getSeconds());
 
+  if (hour < 10) {
+    "0" + hour;
+  } else {
+    hour;
+  }
 
-function rerole(){
-    setInterval(Time, 1000);
-}
+  if (minutes < 10) {
+    "0" + minutes;
+  } else {
+    minutes;
+  }
 
-rerole();
+  if (seconds < 10) {
+    "0" + seconds;
+  } else {
+    seconds;
+  }
+
+  clock.innerHTML = `${hour}:${minutes}:${seconds}`;
+}, 1000);
