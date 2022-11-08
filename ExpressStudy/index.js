@@ -20,7 +20,7 @@ app.get("/plus", (req, res) => {
     let addedNum = parseInt(numQuery[0]);
 
     for (let i = 1; i < numQuery.length; i++) {
-        const addupNum = parseInt(i === numQuery ? 0 : numQuery[i]);
+        const addupNum = parseInt(numQuery[i]);
         addedNum += addupNum;
     };
     res.send(String(addedNum));
@@ -30,14 +30,14 @@ app.get("/plus", (req, res) => {
 app.get("/all", (req, res) => {
     const numQuery = req.query.num;
     const type = req.query.type;
-    if((!numQuery || !type) || (type !== SIGN_TYPE.PLUS && type !== SIGN_TYPE.MINUS && type !== SIGN_TYPE.MULTIPLY && type !== SIGN_TYPE.DIVISION)) {
-        res.send(`Error ${type}이 없습니다.`);
+    if(!Object.values(SIGN_TYPE).includes(type)) {
+        res.send(`Error type 중에 ${type}가 없습니다.`);
     };
 
     let addedNum = parseInt(numQuery[0]);
 
     for (let i = 1; i < numQuery.length; i++) {
-        const addupNum = parseInt(i === numQuery ? 0 : numQuery[i]);
+        const addupNum = parseInt(numQuery[i]);
 
         switch (type) {
             case SIGN_TYPE.PLUS:
