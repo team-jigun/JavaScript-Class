@@ -4,7 +4,12 @@
 }
 
 body {
-  background-image: url('https://picsum.photos/1920/1080');
+  background-image: url(../Img/mont_cervin.jpg);
+  background-size:100%;
+  background-repeat:no-repeat;
+  height: 100%;
+  width: 100%;
+
 }
 
 .main {
