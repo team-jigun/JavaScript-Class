@@ -1,6 +1,6 @@
 let interval, selected, i = 0;
 
-function start() {
+function s() {
     interval = setInterval(() => {
         if (i == 3) i = 1;
         else i++;
@@ -8,27 +8,27 @@ function start() {
     }, 500);
 }
 
-function stop() {
+function sp() {
     clearInterval(interval);
     interval = null;
 }
 
-start();
+s();
 
 window.onload = () => {
-    const key = ['rock', 'scissors', 'paper'];
+    const k = ['rock', 'scissors', 'paper'];
     for (const v of document.querySelector('.user').childNodes) {
         v.addEventListener('dragstart', () => {
-            selected = key.indexOf(v.className) + 1;
+            selected = k.indexOf(v.className) + 1;
         });
     }
     
     document.querySelector('.dropzone').addEventListener('dragleave', () => {
         let result;
-        if (selected == i) result = '무승부';
-        else if (selected - i == 1 || selected - i == -2) result = '패배';
-        else result = '승리';
+        if (selected == i) result = 'DRAW';
+        else if (selected - i == 1 || selected - i == -2) result = 'LOSE';
+        else result = 'WIN';
         document.querySelector('.body').innerHTML = result;
-        stop();
+        sp();
     });
 };
